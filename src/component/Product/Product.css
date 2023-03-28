@@ -40,3 +40,13 @@
 .addToCart:hover {
   background-color: orange;
 }
+
+@media (min-width: 577px) and (max-width: 999px) {
+  .product {
+    width: 250px;
+  }
+
+  .product img {
+    width: 236px;
+  }
+}

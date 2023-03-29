@@ -43,7 +43,23 @@ const Shop = () => {
 
   //
   const handelShoppingCart = (product) => {
-    const newCart = [...cart, product];
+    // const newCart = [...cart, product];
+
+    // if product does not exist in the cart , then set  quantity =1
+    // if exist  update quantity  by 1
+    let newCart = [];
+
+    const exists = cart.find((pd) => pd.id === product.id);
+    if (!exists) {
+      //  je ta amar  first time add to cart kortechi (new product add kortechi) oi tar quantity 1 kore ditechi
+      product.quantity = 1;
+      newCart = [...cart, product];
+    } else {
+      // product cart a add age but abar addToCart kortechi oi product er quantity increment kortechi
+      exists.quantity = exists.quantity + 1;
+      const remaining = cart.filter((pd) => pd.id !== product.id);
+      newCart = [...remaining, exists];
+    }
     setCart(newCart);
     // added to localStore
     addToDb(product.id);

@@ -22,6 +22,7 @@ const Shop = () => {
     // console.log("products", products);
     // localStore theke data niye asbe
     const storedCart = getShoppingCart();
+    // console.log(storedCart,'this is localstore ')
     const saveCart = [];
     // step-1: get id
     for (const id in storedCart) {
@@ -36,7 +37,6 @@ const Shop = () => {
         // step-4 add the added product to save the card
         saveCart.push(addedProduct);
       }
-      console.log(addedProduct);
     }
     setCart(saveCart);
   }, [products]);
@@ -57,6 +57,7 @@ const Shop = () => {
     } else {
       // product cart a add age but abar addToCart kortechi oi product er quantity increment kortechi
       exists.quantity = exists.quantity + 1;
+      // je product ta click korechi oi ta bade sob product remaining e niye rakhlam
       const remaining = cart.filter((pd) => pd.id !== product.id);
       newCart = [...remaining, exists];
     }

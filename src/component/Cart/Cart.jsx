@@ -2,19 +2,11 @@ import React from "react";
 import "./Cart.css";
 const Cart = (props) => {
   const { cart } = props;
-  // console.log(cart);
-
-  //   const totaolPrice = cart.map((item) => item.price);
-  //   console.log(totaolPrice);
 
   let totalPrice = 0;
   let totalShipping = 0;
   let quantity = 0;
   for (const product of cart) {
-    // if (product.quantity === 0) {
-    //   product.quantity = 1;
-    // }
-    // product.quantity = product.quantity || 1;
 
     totalPrice = totalPrice + product.price;
     totalShipping = totalShipping + product.shipping;
